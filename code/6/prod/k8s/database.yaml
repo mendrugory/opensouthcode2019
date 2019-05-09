@@ -1,0 +1,39 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: database
+      labels:
+        app: database         
+    spec:
+      containers:
+      - name: database
+        image: mysql:5.7  
+        env:
+        - name: MYSQL_DATABASE
+          value: "notejam"
+        - name: MYSQL_USER
+          value: "username"
+        - name: MYSQL_PASSWORD
+          value: "password"  
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          value: "yes"                            
+        ports:
+        - containerPort: 3306
+          name: mysql                               
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: database
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+    name: database
+  selector:
+    app: database

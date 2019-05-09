@@ -1,0 +1,40 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: web
+      labels:
+        app: web         
+    spec:
+      containers:
+      - name: web
+        image: mendrugory/notejam  
+        env:
+        - name: MYSQL_DATABASE_DB
+          value: "notejam"
+        - name: MYSQL_DATABASE_USER
+          value: "username"
+        - name: MYSQL_DATABASE_PASSWORD
+          value: "password"  
+        - name: MYSQL_DATABASE_HOST
+          value: "database"             
+        ports:
+        - containerPort: 80
+          name: web                               
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    name: web
+  selector:
+    app: web
+  type: NodePort
