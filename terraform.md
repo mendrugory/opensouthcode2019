@@ -33,7 +33,7 @@ Devops = Development + Operations
 
 ---
 
-~~Devops~~ = ~~Development~~ + **Operations**
+*Devops* = *Development* + **Operations**
 
 ---
 
@@ -48,32 +48,22 @@ Devops = Development + Operations
 ---
 
 
-<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/automate_all_the_things.jpeg"  /></div>
+## ¡¡ Automatizando !!
+
+<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/automation.gif"  /></div>
+
+
+---
+
+
+*Devops* = **Development** + *Operations*
 
 
 ---
 
 # Infrastructure as Code
 
-
 ---
-
-# IaC
-
-
----
-
-<div style="text-align: justify;font-size:90%;"> 
-_A long time ago, in a data center far, far away, an ancient group of powerful beings known as sysadmins used to deploy infrastructure manually. Every server, every route table entry, every database configuration, and every load balancer was created and managed by hand. It was a dark and fearful age: fear of downtime, fear of accidental misconfiguration, fear of slow and fragile deployments, and fear of what would happen if the sysadmins fell to the dark side (i.e. took a vacation). The good news is that thanks to the DevOps Rebel Alliance, we now have a better way to do things: Infrastructure-as-Code (IAC)._
-</div>
-
-</br>
-<div style="text-align: right"><i> Gruntwork </i></div>
-
-
----
-
-
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:80%;"><img src ="/images/terraform.jpg"  /></div>
@@ -115,214 +105,18 @@ resource "aws_instance" "example" {
 
 # Aprovisionamiento de una máquina virtual
 
----
-
-### Aprovisionamiento de una máquina virtual
-
-
-main.tf
-
-```
-provider "aws" {
-  // Paris
-  region = "eu-west-3"
-}
-
-resource "aws_instance" "server" {
-  ami           = "ami-0dd7e7ed60da8fb83"
-  instance_type = "t2.micro"
-}
-
-```
-
----
-
-### Inicialización del proyecto de Terraform
-
-```
-$ terraform init
-```
-
----
-
-### Plan de Ejecución de Terraform
-
-```
-$ terraform plan
-
-...
-
-Plan: 1 to add, 0 to change, 0 to destroy.
-```
-
-
----
-
-### Plan de Ejecución de Terraform
-
-```
-$ terraform plan --out=oneserver.tfplan
-
-...
-
-Plan: 1 to add, 0 to change, 0 to destroy.
-
------------------------------------------------------------
-
-This plan was saved to: oneserver.tfplan
-...
-```
-
-
----
-
-### Crear infrastructura
-
-```
-$ terrafrom apply
-
-...
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-
-```
-
----
-
-### Crear infraestructura usando el plan de ejecución
-
-```
-$ terrafrom apply oneserver.tfplan
-
-...
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-```
-
----
-
-## ¿Estará en AWS?
-
----
-
-### Modificar nuestra infrastructura
-
-main.tf
-
-```
-provider "aws" {
-  // Paris
-  region = "eu-west-3"
-}
-
-resource "aws_instance" "server" {
-  ami           = "ami-0dd7e7ed60da8fb83"
-  instance_type = "t2.nano"
-}
-
-```
-
----
-
-### Modificar nuestra infrastructura
-
-```
-$ terraform plan
-
-...
-
-  ~ aws_instance.server
-      instance_type: "t2.micro" => "t2.nano"
-
-
-Plan: 0 to add, 1 to change, 0 to destroy.
-...
-```
-
----
-
-### Modificar nuestra infrastructura
-
-```
-$ terraform apply --auto-approve
-
-...
-Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
-```
-
----
-
-### Destruir infraestructura
-```
-$ terrafrom destroy --auto-approve
-
-...
-
-Terraform will perform the following actions:
-
-  - aws_instance.server
-
-
-Plan: 0 to add, 0 to change, 1 to destroy.
-
-...
-
-Destroy complete! Resources: 1 destroyed.
-```
-
----
-
-## ¿Y mi aplicación?
 
 ---
 
 
-### Desplegar tras el aprovisionamiento
+<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/demo.gif"  /></div>
 
-main.tf
+*Demo*
 
-```
-provider "aws" {
-  region = "eu-west-3"
-}
 
-data "template_file" "start_script" {
-  template = "${file("./script.sh")}"
-}
+---
 
-resource "aws_security_group" "server_sg" {
-  name = "server-security-group"
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}
-
-resource "aws_instance" "server" {
-  ami                    = "ami-0dd7e7ed60da8fb83"
-  instance_type          = "t2.micro"
-  user_data              = "${data.template_file.start_script.rendered}"
-  vpc_security_group_ids = ["${aws_security_group.server_sg.id}"]
-}
-
-output "public_ip"{
-  value = "${aws_instance.server.public_ip}"
-}
-
-```
-
+## ¿Y ahora tengo que usar otra herramienta para desplegar mi aplicación?
 
 ---
 
@@ -343,55 +137,35 @@ sudo docker run --rm -d -p 80:80 --name app nginx
 
 ### Desplegar tras el aprovisionamiento
 
-```
-$ terraform init
-...
-* provider.aws: version = "~> 2.7"
-* provider.template: version = "~> 2.1"
+main.tf
 
-Terraform has been successfully initialized!
-...
 ```
+provider "aws" {
+  region = "eu-west-3"
+}
+data "template_file" "start_script" {
+  template = "${file("./script.sh")}"
+}
+...
+resource "aws_instance" "server" {
+  ami                    = "ami-0dd7e7ed60da8fb83"
+  instance_type          = "t2.micro"
+  user_data              = "${data.template_file.start_script.rendered}"
+  vpc_security_group_ids = ["${aws_security_group.server_sg.id}"]
+}
+...
+
+```
+
+
 
 ---
 
-### Desplegar tras el aprovisionamiento
 
-```
-$ terraform plan
-...
+<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/another-demo.gif"  /></div>
 
-Plan: 2 to add, 0 to change, 0 to destroy.
-...
-```
+*Otra "Demo"*
 
----
-
-### Desplegar tras el aprovisionamiento
-
-```
-$ terraform apply --auto-approve
-...
-
-
-Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
-
-Outputs:
-
-public_ip = *.*.*.*
-```
-
----
-
-## ¿Se te olvidó copiar la IP?
-
-```
-$ terraform output
-public_ip = *.*.*.*
-```
----
-
-## ¡¡ Visitemos esa dirección !!
 
 ---
 
@@ -413,37 +187,25 @@ public_ip = *.*.*.*
 
 ## Ficheros de Terraform
 
+*variables.tf*
+```
+variable "ami" {}
+variable "instance" {
+  default= "t2.micro"
+}
+```
+
+---
+
+## Ficheros de Terraform
+
 *main.tf*
 ```
 provider "aws" {
   region = "eu-west-3"
 }
 
-data "template_file" "start_script" {
-  template = "${file("./script.sh")}"
-}
-
-resource "aws_security_group" "server_sg" {
-  name = "server-security-group"
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}
+...
 
 resource "aws_instance" "server" {
   ami                    = "${var.ami}"
@@ -464,17 +226,6 @@ output "public_ip"{
 }
 ```
 
----
-
-
-## Ficheros de Terraform
-
-*variables.tf*
-```
-output "public_ip"{
-  value = "${aws_instance.server.public_ip}"
-}
-```
 ---
 
 ## Variables en Terraform
@@ -652,6 +403,13 @@ lb_dns_name = appserver-lb-*******.eu-west-2.elb.amazonaws.com
 
 ---
 
+### ¿Y algo un poco más complicado?
+
+
+<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/dangerous.gif"  /></div>
+
+---
+
 # Kubernetes
 
 ---
@@ -723,8 +481,4 @@ prod/
 
 * @mendrugory
 * www.mendrugory.com
-* www.ananalab.com
-* iam@mendrugory.com
-* gonzalo@ananalab.com
-* gonzalo@lemoncode.net
 
