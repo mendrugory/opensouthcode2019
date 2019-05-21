@@ -39,7 +39,7 @@ Devops = Development + Operations
 
 ## Operations
 
-<div style="display:block;margin-left:auto;margin-right:auto;width:80%;"><img src ="/images/administrador-de-sistemas-1.jpg"  /></div>
+<div style="display:block;margin-left:auto;margin-right:auto;width:50%;"><img src ="/images/operations.gif"  /></div>
 
 ---
 
@@ -109,9 +109,9 @@ resource "aws_instance" "example" {
 ---
 
 
-<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/demo.gif"  /></div>
+<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/demo-time.gif"  /></div>
 
-*Demo*
+*¡¡ Show Time !!*
 
 
 ---
@@ -477,7 +477,7 @@ prod/
 
 ---
 
-# Thanks
+<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/gracias.gif"  /></div>
 
 * @mendrugory
 * www.mendrugory.com
