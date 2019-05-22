@@ -43,7 +43,7 @@ Devops = Development + Operations
 
 ---
 
-### How could we do it?
+### ¿Cómo lo podemos mejorar?
 
 ---
 
@@ -191,7 +191,7 @@ resource "aws_instance" "server" {
 ```
 variable "ami" {}
 variable "instance" {
-  default= "t2.micro"
+  default = "t2.micro"
 }
 ```
 
@@ -276,21 +276,18 @@ provider "aws" {}
 ---
 
 
-# Aplicación Web Completa
+# Módulos de Terraform
 
 ---
 
-## Complete Web Application
+## Aplicación Web Completa
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/webarechitecture.png"  /></div>
 
----
-
-# Terraform Modules
 
 ---
 
-## Terraform Modules
+## Módulos de Terraform
 
 ```
 .
@@ -298,15 +295,15 @@ provider "aws" {}
 │   ├── app_server
 │   │   ├── appserver.sh
 │   │   ├── main.tf
-│   │   ├── output.tf
+│   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── datastore
 │   │   ├── main.tf
-│   │   ├── output.tf
+│   │   ├── outputs.tf
 │   │   └── variables.tf
 │   └── load_balancer
 │       ├── main.tf
-│       ├── output.tf
+│       ├── outputs.tf
 │       └── variables.tf
 ├── prod
 │   ├── env.sh
@@ -326,10 +323,10 @@ provider "aws" {}
 
 ---
 
-## Terraform Modules
+## Módulos de Terraform
 
+*prod/main.tf*
 ```
-
 module "appserver" {
   source = "../modules/app_server"
 
@@ -477,8 +474,15 @@ prod/
 
 ---
 
-<div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/gracias.gif"  /></div>
+## Gracias
+
+
 
 * @mendrugory
 * www.mendrugory.com
+
+
+https://github.com/mendrugory/opensouthcode2019 
+
+
 
