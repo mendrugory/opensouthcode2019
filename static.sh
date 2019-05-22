@@ -2,5 +2,5 @@
 
 cd "$(dirname "$0")"
 
-rm -rf slides
-reveal-md terraform.md --static slides
+rm -rf docs
+reveal-md terraform.md --static docs
