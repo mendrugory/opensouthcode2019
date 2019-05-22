@@ -12,15 +12,23 @@ Terraform es una herramienta de IaC desarrollada en Go por HashiCorp y compatibl
 
 Click :arrow_right: [aquí](https://www.opensouthcode.org/conferences/opensouthcode2019/program/proposals/189)
 
+## Editar / Presentar
 
-### Editar/Presentar
+### Local Server
 
-Necesitas [Docker](https://docs.docker.com/install/) para poder ejecutar el script de bash.
+Ejecutar el server local.
 
 ```
-$ ./edit.sh
+$ ./server.sh
 ```
 
+### Generar Web Estática
+
+```
+$ ./static.sh
+```
+
+## Ejemplos
 
 ### Ejemplo de Web Completa
 

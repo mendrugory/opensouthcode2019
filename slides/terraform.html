@@ -1,15 +1,23 @@
----
-title: Gestiona tu infrastructura como código con Terraform
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: solarized
-revealOptions:
-    transition: 'none'
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Gestiona tu infrastructura como código con Terraform</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
 # Gestiona tu infrastructura como código con Terraform
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 ```
 $ whoami
 
@@ -19,41 +27,41 @@ $ whoami
 * @mendrugory
 
 ```
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Devops
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 > Devops is a way of thinking and a way of working.
 
 <div style="display:block;margin-left:30%;margin-right:0;width:80%;"><i>Effective DevOps.</i></div><div style="display:block;margin-left:33%;margin-right:0;width:80%;"><i>2016 O'Reilly.</i></div>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 > Devops is about finding ways to adapt and innovate social structure, culture, and technology together in order to work more effectively.
 
 <div style="display:block;margin-left:30%;margin-right:0;width:80%;"><i>Effective DevOps.</i></div><div style="display:block;margin-left:33%;margin-right:0;width:80%;"><i>2016 O'Reilly.</i></div>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 Devops = Development + Operations
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 *Devops* = *Development* + **Operations**
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Operations
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:50%;"><img src ="/images/operations.gif"  /></div>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ### ¿Cómo lo podemos mejorar?
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 ## ¡¡ Automatizando !!
@@ -61,30 +69,30 @@ Devops = Development + Operations
 <div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/automation.gif"  /></div>
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 *Devops* = **Development** + *Operations*
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Infrastructure as Code
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:80%;"><img src ="/images/terraform.jpg"  /></div>
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:50%;"><img src ="/images/terraform-cloud-providers.png"  /></div>
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 
@@ -92,7 +100,7 @@ Devops = Development + Operations
 
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Terraform HCL
 
@@ -109,12 +117,12 @@ resource "aws_instance" "example" {
 ```
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Aprovisionamiento de una máquina virtual
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/demo-time.gif"  /></div>
@@ -122,11 +130,11 @@ resource "aws_instance" "example" {
 *¡¡ Show Time !!*
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## ¿Y ahora tengo que usar otra herramienta para desplegar mi aplicación?
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ### Desplegar tras el aprovisionamiento
 
@@ -141,7 +149,7 @@ sudo service docker start
 sudo docker run --rm -d -p 80:80 --name app nginx
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ### Desplegar tras el aprovisionamiento
 
@@ -167,7 +175,7 @@ resource "aws_instance" "server" {
 
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/another-demo.gif"  /></div>
@@ -175,11 +183,11 @@ resource "aws_instance" "server" {
 *Otra "Demo"*
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## ¿Sólo tengo un fichero y los valores como constantes?
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Ficheros de Terraform
 
@@ -191,7 +199,7 @@ resource "aws_instance" "server" {
 ```
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Ficheros de Terraform
 
@@ -203,7 +211,7 @@ variable "instance" {
 }
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Ficheros de Terraform
 
@@ -223,7 +231,7 @@ resource "aws_instance" "server" {
 }
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Ficheros de Terraform
 
@@ -234,7 +242,7 @@ output "public_ip"{
 }
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Variables en Terraform
 
@@ -245,7 +253,7 @@ var.ami
 ```
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Variables en Terraform
 
@@ -254,7 +262,7 @@ $ terraform apply -var 'ami=ami-0dd7e7ed60da8fb83'
 ```
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Variables en Terraform
 
@@ -264,7 +272,7 @@ $ terraform apply
 ```
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 ## Variables en Terraform
@@ -281,19 +289,19 @@ provider "aws" {}
 ...
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 # Módulos de Terraform
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Aplicación Web Completa
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/webarechitecture.png"  /></div>
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Módulos de Terraform
 
@@ -329,7 +337,7 @@ provider "aws" {}
     └── variables.tf
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Módulos de Terraform
 
@@ -368,7 +376,7 @@ module "load_balancer" {
 
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Variables para Terraform
 
@@ -384,7 +392,7 @@ export TF_VAR_database_password="password"
 export TF_VAR_allocated_storage="5"
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Lanzamos la aplicación
 
@@ -402,33 +410,33 @@ lb_dns_name = appserver-lb-*******.eu-west-2.elb.amazonaws.com
 ```
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## ¡¡ Visitemos nuestro NoteJam !!
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ### ¿Y algo un poco más complicado?
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:100%;"><img src ="/images/dangerous.gif"  /></div>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Kubernetes
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## EKS
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## K8S Application
 
 
 <div style="display:block;margin-left:auto;margin-right:auto;width:70%;"><img src ="/images/k8sarchitecture.png"  /></div>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # K8S Modules
 
@@ -452,7 +460,7 @@ modules
     └── variables.tf
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # K8S Production
 
@@ -472,15 +480,15 @@ prod/
 └── variables.tf
 ```
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## ¡¡ Visitemos nuestro NoteJam en Kubernetes !!
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Conclusión
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 ## Gracias
 
@@ -494,3 +502,56 @@ https://github.com/mendrugory/opensouthcode2019
 
 
 
+</script></section></div>
+    </div>
+
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"none"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
