@@ -21,3 +21,12 @@ Necesitas [Docker](https://docs.docker.com/install/) para poder ejecutar el scri
 $ ./edit.sh
 ```
 
+
+### Ejemplo de Web Completa
+
+![](images/webarechitecture.png)
+
+
+### Ejemplo de Kubernetes (EKS)
+
+![](images/k8sarchitecture.png)
