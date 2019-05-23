@@ -99,12 +99,12 @@ Devops = Development + Operations
 
 ```
 provider "aws" {
-    region = "eu-west-1"
+  region = "eu-west-3"
 }
 
-resource "aws_instance" "example" {
-    ami             = "ami-973653739308"
-    instance_type   = "t2.micro"
+resource "aws_instance" "server" {
+  ami           = "ami-0dd7e7ed60da8fb83"
+  instance_type = "t2.nano"
 }
 ```
 
