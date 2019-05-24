@@ -6,7 +6,7 @@ theme: solarized
 revealOptions:
     transition: 'none'
 ---
-# Gestiona tu infrastructura como código con Terraform
+# Gestiona tu infraestructura como código con Terraform
 
 
 <!--s-->
