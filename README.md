@@ -34,14 +34,10 @@ $ ./static.sh
 
 ### Ejemplo de Web Completa
 
-Visita la [web app](http://appserver-lb-781191793.eu-west-2.elb.amazonaws.com).
 
 ![](images/webarechitecture.png)
 
 
 ### Ejemplo de Kubernetes (EKS)
-
-Visita la [web app](
-http://66730786-default-ingress-e8c7-1295895940.eu-west-1.elb.amazonaws.com/).
 
 ![](images/k8sarchitecture.png)
