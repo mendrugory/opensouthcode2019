@@ -4,7 +4,7 @@ Flask-Mail==0.7.6
 Flask-SQLAlchemy==0.16
 Flask-Testing==0.4.2
 Flask-WTF==0.8.3
-Jinja2==2.6
+Jinja2==2.11.3
 SQLAlchemy==1.2.0
 Tempita==0.5.1
 WTForms==1.0.3
